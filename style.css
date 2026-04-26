@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+
+    /* background profesional */
+    background: linear-gradient(135deg, #1e3c72, #8e2de2, #ff6ec4);
+    background-size: 300% 300%;
+    animation: bgMove 10s ease infinite;
+
+    min-height: 100vh;
+}
+
+@keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd6ff;
+}
+
+/* Container Utama Home */
+.home {
+    display: flex;             /* Membuat konten jadi bersampingan */
+    align-items: center;       /* Rata tengah secara vertikal */
+    justify-content: space-between; /* Teks di kiri, foto di kanan */
+    padding: 80px 10%;         /* Jarak dari tepi layar */
+    min-height: 100vh;         /* Tinggi layar penuh */
+    gap: 50px;                 /* Jarak antara teks dan foto */
+}
+
+/* Mengatur ukuran teks agar tidak memenuhi layar */
+.text-container {
+    flex: 1; 
+}
+
+.text-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* --- CSS UNTUK FOTO DIAM (TUNGGAL) --- */
+
+.image-box-single {
+    width: 350px;              /* Ukuran diameter lingkaran foto */
+    height: 350px;             /* Harus sama dengan lebar agar bulat */
+    border-radius: 50%;        /* INI KUNCINYA agar jadi bulat sempurna */
+    border: 8px solid rgba(255, 255, 255, 0.2); /* Bingkai transparan cantik */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Efek bayangan biar melayang */
+    overflow: hidden;          /* Potong foto kotak agar masuk ke lingkaran */
+    flex-shrink: 0;            /* Biar foto gak gepeng di layar kecil */
+    
+    /* TIDAK ADA KODE ANIMASI DI SINI, JADI FOTO AKAN DIAM */
+}
+
+.image-box-single img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* Agar foto kamu pas memenuhi lingkaran, tidak gepeng */
+}
+
+.image {
+    position: relative;
+}
+
+/* Lingkaran cahaya di belakang foto */
+.image::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(225,190,231,0.3) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+/* CARD */
+.container {
+    text-align: center;
+    padding: 80px 20px;
+
+}
+
+.card {
+    background: rgba(255,255,255,0.12);
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 18px;
+    width: 75%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* TABLE */
+table {
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 12px;
+}
+
+.kontak-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.kontak-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    width: 200px;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.kontak-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+    border-color: #e1bee7;
+}
+
+.kontak-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+    color: #e1bee7;
+}
+
+.kontak-card span {
+    font-weight: bold;
+    display: block;
+    font-size: 1.1rem;
+}
+
+.kontak-card p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+}
+
+/* Menghilangkan garis bawah asli dan kasih warna */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    position: relative; /* Penting untuk posisi garis nanti */
+    padding: 5px 0;
+}
+
+/* Membuat garis bayangan yang awalnya lebar 0 */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #e1bee7; /* Warna ungu muda */
+    left: 0;
+    bottom: 0;
+    transition: 0.4s; /* Biar munculnya halus */
+}
+
+/* Pas kursor di atas menu, garisnya jadi lebar 100% */
+nav ul li a:hover::after {
+    width: 100%;
+}
